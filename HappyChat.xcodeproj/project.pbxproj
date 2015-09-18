@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		B858F9951BABA57F00605A09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9941BABA57F00605A09 /* AppDelegate.swift */; };
-		B858F9971BABA57F00605A09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9961BABA57F00605A09 /* ViewController.swift */; };
 		B858F99A1BABA57F00605A09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B858F9981BABA57F00605A09 /* Main.storyboard */; };
 		B858F99C1BABA57F00605A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B858F99B1BABA57F00605A09 /* Assets.xcassets */; };
 		B858F99F1BABA57F00605A09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B858F99D1BABA57F00605A09 /* LaunchScreen.storyboard */; };
+		B858F9A71BABAB2200605A09 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9A61BABAB2200605A09 /* MessagesViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9A81BABAB5000605A09 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9AB1BABB14000605A09 /* NewMessage.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B858F9911BABA57F00605A09 /* HappyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B858F9941BABA57F00605A09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B858F9961BABA57F00605A09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B858F9991BABA57F00605A09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B858F99B1BABA57F00605A09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B858F99E1BABA57F00605A09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B858F9A01BABA57F00605A09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B858F9A61BABAB2200605A09 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		B858F9A81BABAB5000605A09 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
+		B858F9AB1BABB14000605A09 /* NewMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,24 @@
 		B858F9931BABA57F00605A09 /* HappyChat */ = {
 			isa = PBXGroup;
 			children = (
+				B858F9AA1BABAB5A00605A09 /* Controllers */,
 				B858F9941BABA57F00605A09 /* AppDelegate.swift */,
-				B858F9961BABA57F00605A09 /* ViewController.swift */,
 				B858F9981BABA57F00605A09 /* Main.storyboard */,
+				B858F9AB1BABB14000605A09 /* NewMessage.swift */,
 				B858F99B1BABA57F00605A09 /* Assets.xcassets */,
 				B858F99D1BABA57F00605A09 /* LaunchScreen.storyboard */,
 				B858F9A01BABA57F00605A09 /* Info.plist */,
 			);
 			path = HappyChat;
+			sourceTree = "<group>";
+		};
+		B858F9AA1BABAB5A00605A09 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B858F9A81BABAB5000605A09 /* SettingsViewController.swift */,
+				B858F9A61BABAB2200605A09 /* MessagesViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B858F9971BABA57F00605A09 /* ViewController.swift in Sources */,
+				B858F9A71BABAB2200605A09 /* MessagesViewController.swift in Sources */,
 				B858F9951BABA57F00605A09 /* AppDelegate.swift in Sources */,
+				B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */,
+				B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

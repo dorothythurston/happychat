@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KB4-DZ-aZz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Chat-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MessagesViewController" customModule="HappyChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +15,131 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTI-3O-f72">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="Wj8-gk-twQ">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New Message" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Yt5-He-7BA" customClass="NewMessage" customModule="HappyChat" customModuleProvider="target">
+                                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem title="Send" id="mid-6m-umA"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rTI-3O-f72" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="KxR-dj-aiB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rTI-3O-f72" secondAttribute="bottom" constant="18" id="LuK-jR-GnK">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="rTI-3O-f72" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ag9-pG-b2B"/>
+                            <constraint firstItem="rTI-3O-f72" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="huW-Bm-N4W"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="rTI-3O-f72"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="LuK-jR-GnK"/>
+                                <exclude reference="KxR-dj-aiB"/>
+                                <exclude reference="ag9-pG-b2B"/>
+                                <exclude reference="huW-Bm-N4W"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="rTI-3O-f72"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="LuK-jR-GnK"/>
+                                <include reference="KxR-dj-aiB"/>
+                                <include reference="ag9-pG-b2B"/>
+                                <include reference="huW-Bm-N4W"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Chat" id="uJQ-Ia-hWx">
+                        <barButtonItem key="rightBarButtonItem" image="Gear" id="LUB-6V-Edn">
+                            <connections>
+                                <segue destination="Cn4-un-Hmm" kind="presentation" id="nFK-CL-0mC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="993" y="-366"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Mdh-nH-ZQ6">
+            <objects>
+                <viewController id="PzE-tP-vtg" customClass="SettingsViewController" customModule="HappyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3H4-Vy-sNL"/>
+                        <viewControllerLayoutGuide type="bottom" id="CaU-za-CWJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="REL-2i-c8g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="GQ6-Vd-BI9">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="h4x-Io-GKW">
+                            <connections>
+                                <action selector="didPressCancel:" destination="PzE-tP-vtg" id="S5P-Sl-B18"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="woJ-yA-I0I"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4qT-Jq-gC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2728.5" y="-366"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Io7-YU-4HC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KB4-DZ-aZz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4a5-HN-QRS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7XC-St-bCb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kfr-Th-eGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="197" y="-366"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1HJ-Lz-Ehu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cn4-un-Hmm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OUe-W1-XgT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PzE-tP-vtg" kind="relationship" relationship="rootViewController" id="N5B-ex-um8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nE3-wg-bCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1810.5" y="-366"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Gear" width="24" height="24"/>
+    </resources>
+    <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
