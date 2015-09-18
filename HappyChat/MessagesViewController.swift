@@ -8,8 +8,10 @@
 
 import UIKit
 
-class MessagesViewController: UIViewController {
+class MessagesViewController: UIViewController, UINavigationControllerDelegate  {
 
+    @IBOutlet weak var myMessage: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,19 +23,24 @@ class MessagesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
-        view.endEditing(true)
-        super.touchesBegan(touches, withEvent: event)
-    } */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func didPressNewMessage(sender: AnyObject) {
     }
-    */
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "NewMessageSegue" {
+            let nav = segue.destinationViewController as! UINavigationController
+            let uiPickerViewController = nav.topViewController as! UIPickerViewController
+            uiPickerViewController.delegate = self
+        }
+    }
+    
 
 }
+
+extension MessagesViewController: UIPickerViewControllerDelegate {
+    func newMessageChoiceMade(choice: String) {
+      myMessage.setTitle(choice, forState: UIControlState.Normal)
+   }
+}
+

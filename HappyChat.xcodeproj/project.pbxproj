@@ -14,6 +14,7 @@
 		B858F9A71BABAB2200605A09 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9A61BABAB2200605A09 /* MessagesViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9A81BABAB5000605A09 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9AB1BABB14000605A09 /* NewMessage.swift */; settings = {ASSET_TAGS = (); }; };
+		B875566F1BAC6C8100F033AE /* UIPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B858F9A61BABAB2200605A09 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		B858F9A81BABAB5000605A09 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
 		B858F9AB1BABB14000605A09 /* NewMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessage.swift; sourceTree = "<group>"; };
+		B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		B858F9AA1BABAB5A00605A09 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */,
 				B858F9A81BABAB5000605A09 /* SettingsViewController.swift */,
 				B858F9A61BABAB2200605A09 /* MessagesViewController.swift */,
 			);
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B875566F1BAC6C8100F033AE /* UIPickerViewController.swift in Sources */,
 				B858F9A71BABAB2200605A09 /* MessagesViewController.swift in Sources */,
 				B858F9951BABA57F00605A09 /* AppDelegate.swift in Sources */,
 				B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */,
@@ -299,6 +303,7 @@
 				B858F9A51BABA57F00605A09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
