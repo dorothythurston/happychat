@@ -41,40 +41,76 @@
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem width="16" style="plain" systemItem="fixedSpace" id="pq0-bI-1QT"/>
-                                    <barButtonItem title="Send" id="mid-6m-umA"/>
+                                    <barButtonItem title="Send" id="mid-6m-umA">
+                                        <connections>
+                                            <action selector="didPressSendMessage:" destination="BYZ-38-t0r" id="iuD-iU-2WT"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="18" style="plain" systemItem="fixedSpace" id="03h-gK-p6q"/>
                                 </items>
                             </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ov2-sP-9nw">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" id="c5M-q6-hDA">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c5M-q6-hDA" id="amN-1J-Mqd">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Ov2-sP-9nw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eo7-3I-RAj"/>
+                            <constraint firstItem="Ov2-sP-9nw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="Ji9-8b-hOi">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="rTI-3O-f72" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="KxR-dj-aiB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rTI-3O-f72" secondAttribute="bottom" constant="18" id="LuK-jR-GnK">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="Ov2-sP-9nw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="PnE-VF-J5M"/>
                             <constraint firstItem="rTI-3O-f72" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ag9-pG-b2B"/>
+                            <constraint firstItem="rTI-3O-f72" firstAttribute="top" secondItem="Ov2-sP-9nw" secondAttribute="bottom" id="gsy-tB-sdF"/>
                             <constraint firstItem="rTI-3O-f72" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="huW-Bm-N4W"/>
+                            <constraint firstItem="Ov2-sP-9nw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="mLb-V8-9gb"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="rTI-3O-f72"/>
+                                <exclude reference="Ov2-sP-9nw"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="LuK-jR-GnK"/>
+                                <exclude reference="Eo7-3I-RAj"/>
+                                <exclude reference="Ji9-8b-hOi"/>
+                                <exclude reference="PnE-VF-J5M"/>
+                                <exclude reference="mLb-V8-9gb"/>
                                 <exclude reference="KxR-dj-aiB"/>
                                 <exclude reference="ag9-pG-b2B"/>
+                                <exclude reference="gsy-tB-sdF"/>
                                 <exclude reference="huW-Bm-N4W"/>
+                                <exclude reference="LuK-jR-GnK"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="rTI-3O-f72"/>
+                                <include reference="Ov2-sP-9nw"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="LuK-jR-GnK"/>
+                                <include reference="Eo7-3I-RAj"/>
+                                <include reference="Ji9-8b-hOi"/>
+                                <exclude reference="PnE-VF-J5M"/>
+                                <include reference="mLb-V8-9gb"/>
                                 <include reference="KxR-dj-aiB"/>
                                 <include reference="ag9-pG-b2B"/>
+                                <include reference="gsy-tB-sdF"/>
                                 <include reference="huW-Bm-N4W"/>
+                                <include reference="LuK-jR-GnK"/>
                             </mask>
                         </variation>
                     </view>
@@ -86,6 +122,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="messageTableView" destination="Ov2-sP-9nw" id="TVf-eX-EiP"/>
                         <outlet property="myMessage" destination="sqq-cr-9Vz" id="dtE-6T-JHu"/>
                     </connections>
                 </viewController>
@@ -219,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qT-Jq-gC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2728.5" y="-366"/>
+            <point key="canvasLocation" x="3540" y="-366"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Io7-YU-4HC">
@@ -255,7 +292,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nE3-wg-bCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1810.5" y="-366"/>
+            <point key="canvasLocation" x="2622" y="-366"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fpX-AO-H0C">

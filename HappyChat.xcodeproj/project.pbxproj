@@ -15,6 +15,7 @@
 		B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9A81BABAB5000605A09 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9AB1BABB14000605A09 /* NewMessage.swift */; settings = {ASSET_TAGS = (); }; };
 		B875566F1BAC6C8100F033AE /* UIPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B8D2627C1BACFD3D0045B232 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2627B1BACFD3D0045B232 /* Message.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B858F9A81BABAB5000605A09 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
 		B858F9AB1BABB14000605A09 /* NewMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessage.swift; sourceTree = "<group>"; };
 		B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPickerViewController.swift; sourceTree = "<group>"; };
+		B8D2627B1BACFD3D0045B232 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				B858F9AA1BABAB5A00605A09 /* Controllers */,
+				B8D2627D1BACFD710045B232 /* Models */,
 				B858F9941BABA57F00605A09 /* AppDelegate.swift */,
 				B858F9981BABA57F00605A09 /* Main.storyboard */,
 				B858F9AB1BABB14000605A09 /* NewMessage.swift */,
@@ -79,6 +82,14 @@
 				B858F9A61BABAB2200605A09 /* MessagesViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B8D2627D1BACFD710045B232 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B8D2627B1BACFD3D0045B232 /* Message.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +165,7 @@
 				B875566F1BAC6C8100F033AE /* UIPickerViewController.swift in Sources */,
 				B858F9A71BABAB2200605A09 /* MessagesViewController.swift in Sources */,
 				B858F9951BABA57F00605A09 /* AppDelegate.swift in Sources */,
+				B8D2627C1BACFD3D0045B232 /* Message.swift in Sources */,
 				B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */,
 				B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */,
 			);
