@@ -15,7 +15,7 @@
 		B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9A81BABAB5000605A09 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9AB1BABB14000605A09 /* NewMessage.swift */; settings = {ASSET_TAGS = (); }; };
 		B875566F1BAC6C8100F033AE /* UIPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		B8D2627C1BACFD3D0045B232 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2627B1BACFD3D0045B232 /* Message.swift */; settings = {ASSET_TAGS = (); }; };
+		B89E523F1BB09B9700139C1A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89E523E1BB09B9700139C1A /* Message.swift */; settings = {ASSET_TAGS = (); }; };
 		B8D2627F1BB041820045B232 /* IncomingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */; settings = {ASSET_TAGS = (); }; };
 		B8D262811BB0771B0045B232 /* OutgoingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -31,7 +31,7 @@
 		B858F9A81BABAB5000605A09 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
 		B858F9AB1BABB14000605A09 /* NewMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessage.swift; sourceTree = "<group>"; };
 		B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPickerViewController.swift; sourceTree = "<group>"; };
-		B8D2627B1BACFD3D0045B232 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B89E523E1BB09B9700139C1A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingMessageCell.swift; sourceTree = "<group>"; };
 		B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingMessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +69,8 @@
 				B858F9AA1BABAB5A00605A09 /* Controllers */,
 				B8D2627D1BACFD710045B232 /* Models */,
 				B858F9941BABA57F00605A09 /* AppDelegate.swift */,
+				B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */,
+				B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */,
 				B858F9981BABA57F00605A09 /* Main.storyboard */,
 				B858F9AB1BABB14000605A09 /* NewMessage.swift */,
 				B858F99B1BABA57F00605A09 /* Assets.xcassets */,
@@ -82,8 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */,
-				B858F9A81BABAB5000605A09 /* SettingsViewController.swift */,
 				B858F9A61BABAB2200605A09 /* MessagesViewController.swift */,
+				B858F9A81BABAB5000605A09 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -91,9 +93,7 @@
 		B8D2627D1BACFD710045B232 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B8D2627B1BACFD3D0045B232 /* Message.swift */,
-				B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */,
-				B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */,
+				B89E523E1BB09B9700139C1A /* Message.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -171,9 +171,9 @@
 				B875566F1BAC6C8100F033AE /* UIPickerViewController.swift in Sources */,
 				B858F9A71BABAB2200605A09 /* MessagesViewController.swift in Sources */,
 				B858F9951BABA57F00605A09 /* AppDelegate.swift in Sources */,
-				B8D2627C1BACFD3D0045B232 /* Message.swift in Sources */,
 				B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */,
 				B8D262811BB0771B0045B232 /* OutgoingMessageCell.swift in Sources */,
+				B89E523F1BB09B9700139C1A /* Message.swift in Sources */,
 				B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */,
 				B8D2627F1BB041820045B232 /* IncomingMessageCell.swift in Sources */,
 			);

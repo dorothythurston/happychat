@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KB4-DZ-aZz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -58,11 +59,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c5M-q6-hDA" id="amN-1J-Mqd">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j2m-35-52s">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43.5" id="JNL-Ia-af4"/>
                                                         <constraint firstAttribute="width" constant="166" id="Ly6-8X-259"/>
@@ -129,11 +131,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hlZ-wo-hPF" id="mNE-wg-xSR">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ODL-1X-1b2">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43.5" id="UTQ-d4-Qf4"/>
                                                         <constraint firstAttribute="width" constant="166" id="dX1-8h-Je0"/>
@@ -218,14 +221,14 @@
                                 <exclude reference="Ov2-sP-9nw"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Eo7-3I-RAj"/>
-                                <exclude reference="Ji9-8b-hOi"/>
-                                <exclude reference="mLb-V8-9gb"/>
+                                <exclude reference="LuK-jR-GnK"/>
                                 <exclude reference="KxR-dj-aiB"/>
                                 <exclude reference="ag9-pG-b2B"/>
                                 <exclude reference="gsy-tB-sdF"/>
                                 <exclude reference="huW-Bm-N4W"/>
-                                <exclude reference="LuK-jR-GnK"/>
+                                <exclude reference="Eo7-3I-RAj"/>
+                                <exclude reference="Ji9-8b-hOi"/>
+                                <exclude reference="mLb-V8-9gb"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -234,14 +237,14 @@
                                 <include reference="Ov2-sP-9nw"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Eo7-3I-RAj"/>
-                                <include reference="Ji9-8b-hOi"/>
-                                <include reference="mLb-V8-9gb"/>
+                                <include reference="LuK-jR-GnK"/>
                                 <include reference="KxR-dj-aiB"/>
                                 <include reference="ag9-pG-b2B"/>
                                 <include reference="gsy-tB-sdF"/>
                                 <include reference="huW-Bm-N4W"/>
-                                <include reference="LuK-jR-GnK"/>
+                                <include reference="Eo7-3I-RAj"/>
+                                <include reference="Ji9-8b-hOi"/>
+                                <include reference="mLb-V8-9gb"/>
                             </mask>
                         </variation>
                     </view>

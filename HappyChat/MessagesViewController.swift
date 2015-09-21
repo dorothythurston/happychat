@@ -10,7 +10,7 @@ import UIKit
 
 class MessagesViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate  {
     //MARK: - Variables that will be deleted later
-    var exampleMessages = ["Hello!", "I am happy you exist"]
+    var messages = [Message]()
     var storedChoice = "sent a message"
     
     //MARK: - Properties
@@ -22,6 +22,11 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         messageTableView.delegate = self
         messageTableView.dataSource = self
         // Do any additional setup after loading the view.
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let savedMessages = defaults.objectForKey("messages") as? NSData {
+            messages = NSKeyedUnarchiver.unarchiveObjectWithData(savedMessages) as! [Message]
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +39,9 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     }
     
     @IBAction func didPressSendMessage(sender: UIBarButtonItem) {
-        exampleMessages.append(storedChoice)
+        let newMessage = Message(text:storedChoice, incoming: false)
+        messages.append(newMessage)
+        self.save()
         messageTableView.reloadData()
     }
     
@@ -55,28 +62,41 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     }
  
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exampleMessages.count
+        return messages.count
     }
     
     
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCellWithIdentifier("incomingMessageCell", forIndexPath: indexPath) as! incomingMessageCell
-        
-        let row = indexPath.row
-        cell.messageLabel.text = exampleMessages[row]
-        cell.messageImageView.layer.masksToBounds = true
-        cell.messageImageView.layer.cornerRadius = 10
-        return cell
+        let message = messages[indexPath.item]
+        if message.incoming == true {
+            let cell = tableView.dequeueReusableCellWithIdentifier("incomingMessageCell", forIndexPath: indexPath) as! incomingMessageCell
+            cell.messageLabel.text = message.text
+            cell.messageImageView.layer.masksToBounds = true
+            cell.messageImageView.layer.cornerRadius = 10
+            cell.messageImageView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).CGColor
+            cell.messageImageView.layer.borderWidth = 2
+            
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("outgoingMessageCell", forIndexPath: indexPath) as! outgoingMessageCell
+            cell.messageLabel.text = message.text
+            cell.messageImageView.layer.masksToBounds = true
+            cell.messageImageView.layer.cornerRadius = 10
+            cell.messageImageView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).CGColor
+            cell.messageImageView.layer.borderWidth = 2
+            
+            return cell
+        }
     }
     
-    // MARK:  UITableViewDelegate Methods
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        let row = indexPath.row
-        print(exampleMessages[row])
+    // MARK: Data Storage
+    
+    func save() {
+        let savedData = NSKeyedArchiver.archivedDataWithRootObject(messages)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(savedData, forKey: "messages")
     }
 }
 
