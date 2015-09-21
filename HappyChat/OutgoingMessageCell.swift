@@ -1,5 +1,5 @@
 //
-//  MessageCell.swift
+//  OutgoingMessageCell.swift
 //  HappyChat
 //
 //  Created by Dorothy Thurston on 9/21/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessageCell: UITableViewCell {
+class outgoingMessageCell: UITableViewCell {
     @IBOutlet weak var messageImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
 }

@@ -48,7 +48,8 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     }
     
     //MARK: - Table View Functions and related properties
-    let textCellIdentifier = "messageCell"
+    // Set these later let textCellIdentifier = "messageCell"
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -56,10 +57,12 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exampleMessages.count
     }
+    
+    
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! MessageCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("incomingMessageCell", forIndexPath: indexPath) as! incomingMessageCell
         
         let row = indexPath.row
         cell.messageLabel.text = exampleMessages[row]

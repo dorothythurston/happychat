@@ -16,7 +16,8 @@
 		B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9AB1BABB14000605A09 /* NewMessage.swift */; settings = {ASSET_TAGS = (); }; };
 		B875566F1BAC6C8100F033AE /* UIPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B8D2627C1BACFD3D0045B232 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2627B1BACFD3D0045B232 /* Message.swift */; settings = {ASSET_TAGS = (); }; };
-		B8D2627F1BB041820045B232 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2627E1BB041820045B232 /* MessageCell.swift */; settings = {ASSET_TAGS = (); }; };
+		B8D2627F1BB041820045B232 /* IncomingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */; settings = {ASSET_TAGS = (); }; };
+		B8D262811BB0771B0045B232 /* OutgoingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +32,8 @@
 		B858F9AB1BABB14000605A09 /* NewMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessage.swift; sourceTree = "<group>"; };
 		B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPickerViewController.swift; sourceTree = "<group>"; };
 		B8D2627B1BACFD3D0045B232 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		B8D2627E1BB041820045B232 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingMessageCell.swift; sourceTree = "<group>"; };
+		B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingMessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				B8D2627B1BACFD3D0045B232 /* Message.swift */,
-				B8D2627E1BB041820045B232 /* MessageCell.swift */,
+				B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */,
+				B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -170,8 +173,9 @@
 				B858F9951BABA57F00605A09 /* AppDelegate.swift in Sources */,
 				B8D2627C1BACFD3D0045B232 /* Message.swift in Sources */,
 				B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */,
+				B8D262811BB0771B0045B232 /* OutgoingMessageCell.swift in Sources */,
 				B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */,
-				B8D2627F1BB041820045B232 /* MessageCell.swift in Sources */,
+				B8D2627F1BB041820045B232 /* IncomingMessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

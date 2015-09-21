@@ -6,19 +6,14 @@
 //  Copyright © 2015 Dorothy Thurston. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-/*
-struct Message {
-    var beenRead: Bool?
-    var beenSent: Bool?
-    var createdDate: NSDate?
-    var text: String?
+class Message {
+    var text: String
+    var incoming: Bool
     
-    init(text: String) {
-        self.beenSent = false
-        self.beenRead = false
+    init(text: String, incoming: Bool) {
         self.text = text
+        self.incoming = incoming
     }
 }
-*/
