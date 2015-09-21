@@ -14,16 +14,13 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     var storedChoice = "sent a message"
     
     //MARK: - Properties
-
     @IBOutlet weak var myMessage: UIButton!
     @IBOutlet weak var messageTableView: UITableView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         messageTableView.delegate = self
         messageTableView.dataSource = self
-
         // Do any additional setup after loading the view.
     }
 
@@ -32,7 +29,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - Interface Actions
+    // MARK: - Interface Actions
     @IBAction func didPressNewMessage(sender: AnyObject) {
     }
     
@@ -61,11 +58,13 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as UITableViewCell
+
+        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! MessageCell
         
         let row = indexPath.row
-        cell.textLabel?.text = exampleMessages[row]
-        
+        cell.messageLabel.text = exampleMessages[row]
+        cell.messageImageView.layer.masksToBounds = true
+        cell.messageImageView.layer.cornerRadius = 10
         return cell
     }
     
@@ -76,7 +75,6 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         let row = indexPath.row
         print(exampleMessages[row])
     }
-    
 }
 
 extension MessagesViewController: UIPickerViewControllerDelegate {

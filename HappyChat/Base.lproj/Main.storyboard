@@ -49,16 +49,78 @@
                                     <barButtonItem width="18" style="plain" systemItem="fixedSpace" id="03h-gK-p6q"/>
                                 </items>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ov2-sP-9nw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ov2-sP-9nw">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" id="c5M-q6-hDA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" rowHeight="70" id="c5M-q6-hDA" customClass="MessageCell" customModule="HappyChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c5M-q6-hDA" id="amN-1J-Mqd">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j2m-35-52s">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="JNL-Ia-af4"/>
+                                                        <constraint firstAttribute="width" constant="166" id="Ly6-8X-259"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="JNL-Ia-af4"/>
+                                                            <exclude reference="Ly6-8X-259"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="JNL-Ia-af4"/>
+                                                            <include reference="Ly6-8X-259"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCo-Jh-w7B">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cCo-Jh-w7B" firstAttribute="centerY" secondItem="j2m-35-52s" secondAttribute="centerY" id="3Oe-CO-w4F"/>
+                                                <constraint firstItem="j2m-35-52s" firstAttribute="centerY" secondItem="amN-1J-Mqd" secondAttribute="centerY" id="9Fx-3G-baM"/>
+                                                <constraint firstItem="j2m-35-52s" firstAttribute="centerX" secondItem="amN-1J-Mqd" secondAttribute="centerX" id="Xhm-qH-e1A"/>
+                                                <constraint firstItem="cCo-Jh-w7B" firstAttribute="centerX" secondItem="j2m-35-52s" secondAttribute="centerX" id="k0K-Cl-XkA"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="j2m-35-52s"/>
+                                                    <exclude reference="cCo-Jh-w7B"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="3Oe-CO-w4F"/>
+                                                    <exclude reference="k0K-Cl-XkA"/>
+                                                    <exclude reference="9Fx-3G-baM"/>
+                                                    <exclude reference="Xhm-qH-e1A"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="j2m-35-52s"/>
+                                                    <include reference="cCo-Jh-w7B"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="3Oe-CO-w4F"/>
+                                                    <include reference="k0K-Cl-XkA"/>
+                                                    <include reference="9Fx-3G-baM"/>
+                                                    <include reference="Xhm-qH-e1A"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageImageView" destination="j2m-35-52s" id="NPd-YN-M2w"/>
+                                            <outlet property="messageLabel" destination="cCo-Jh-w7B" id="gwd-ee-TPR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
