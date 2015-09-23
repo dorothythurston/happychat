@@ -28,6 +28,8 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         if let savedMessages = defaults.objectForKey("messages") as? NSData {
             messages = NSKeyedUnarchiver.unarchiveObjectWithData(savedMessages) as! [Message]
         }
+        messageTableView.estimatedRowHeight = 68.0
+        messageTableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +49,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     
     // TODO: - To be deleted after full implementation
     @IBAction func didPressNewComputerMessage(sender: UIBarButtonItem) {
-        let newComputerMessage = ComputerMessage(text: "it's nice out", replies: [":)","yay!","great!"])
+        let newComputerMessage = ComputerMessage(text: "i am writing you a very long message to let you know i think that you are great!", replies: [":)","yay!","great!"])
         userReplyChoices = newComputerMessage.replies
         let newMessage = Message(text: newComputerMessage.text, incoming: true)
         insertMessage(newMessage)
@@ -88,23 +90,18 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let message = messages[indexPath.item]
+        
         if message.incoming == true {
             let cell = tableView.dequeueReusableCellWithIdentifier("incomingMessageCell", forIndexPath: indexPath) as! incomingMessageCell
-            cell.messageLabel.text = message.text
-            cell.messageImageView.layer.masksToBounds = true
-            cell.messageImageView.layer.cornerRadius = 10
-            cell.messageImageView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).CGColor
-            cell.messageImageView.layer.borderWidth = 2
+            cell.messageField.text = message.text
+            cell.messageField.layer.cornerRadius = 15.0;
             
             return cell
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("outgoingMessageCell", forIndexPath: indexPath) as! outgoingMessageCell
-            cell.messageLabel.text = message.text
-            cell.messageImageView.layer.masksToBounds = true
-            cell.messageImageView.layer.cornerRadius = 10
-            cell.messageImageView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).CGColor
-            cell.messageImageView.layer.borderWidth = 2
+            cell.messageField.text = message.text
+            cell.messageField.layer.cornerRadius = 15.0;
             
             return cell
         }
