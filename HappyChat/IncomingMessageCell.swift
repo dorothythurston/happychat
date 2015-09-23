@@ -11,4 +11,5 @@ import UIKit
 class incomingMessageCell: UITableViewCell {
     @IBOutlet weak var messageImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
+    
 }

@@ -82,9 +82,9 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCo-Jh-w7B">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCo-Jh-w7B">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
@@ -154,18 +154,17 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6O7-HN-DMd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6O7-HN-DMd">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="241" y="24" width="108" height="20.5"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="6O7-HN-DMd" firstAttribute="centerX" secondItem="ODL-1X-1b2" secondAttribute="centerX" id="1AF-fg-5bk"/>
                                                 <constraint firstItem="ODL-1X-1b2" firstAttribute="centerX" secondItem="mNE-wg-xSR" secondAttribute="centerX" id="3u4-FE-lFP"/>
+                                                <constraint firstItem="6O7-HN-DMd" firstAttribute="centerY" secondItem="ODL-1X-1b2" secondAttribute="centerY" id="Sdk-Ht-Mtl"/>
                                                 <constraint firstItem="ODL-1X-1b2" firstAttribute="centerY" secondItem="mNE-wg-xSR" secondAttribute="centerY" id="dbm-7D-jVh"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ODL-1X-1b2" secondAttribute="trailing" constant="14" id="yuw-el-RbM"/>
                                             </constraints>
@@ -178,6 +177,8 @@
                                                     <exclude reference="3u4-FE-lFP"/>
                                                     <exclude reference="dbm-7D-jVh"/>
                                                     <exclude reference="yuw-el-RbM"/>
+                                                    <exclude reference="1AF-fg-5bk"/>
+                                                    <exclude reference="Sdk-Ht-Mtl"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -189,6 +190,8 @@
                                                     <exclude reference="3u4-FE-lFP"/>
                                                     <include reference="dbm-7D-jVh"/>
                                                     <include reference="yuw-el-RbM"/>
+                                                    <include reference="1AF-fg-5bk"/>
+                                                    <include reference="Sdk-Ht-Mtl"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -249,6 +252,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="uJQ-Ia-hWx">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="h0A-5R-hce">
+                            <connections>
+                                <action selector="didPressNewComputerMessage:" destination="BYZ-38-t0r" id="GdG-zo-hum"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Gear" id="LUB-6V-Edn">
                             <connections>
                                 <segue destination="Cn4-un-Hmm" kind="presentation" id="nFK-CL-0mC"/>
@@ -390,7 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qT-Jq-gC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3540" y="-366"/>
+            <point key="canvasLocation" x="2790" y="-366"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Io7-YU-4HC">
@@ -426,7 +434,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nE3-wg-bCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2622" y="-366"/>
+            <point key="canvasLocation" x="1902" y="-366"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fpX-AO-H0C">

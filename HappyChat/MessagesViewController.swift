@@ -12,6 +12,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     //MARK: - Variables that will be deleted later
     var messages = [Message]()
     var storedChoice = "sent a message"
+    var userReplyChoices = ["<3", "wow"]
     
     //MARK: - Properties
     @IBOutlet weak var myMessage: UIButton!
@@ -40,9 +41,17 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     
     @IBAction func didPressSendMessage(sender: UIBarButtonItem) {
         let newMessage = Message(text:storedChoice, incoming: false)
-        messages.append(newMessage)
+        insertMessage(newMessage)
         self.save()
-        messageTableView.reloadData()
+    }
+    
+    // TODO: - To be deleted after full implementation
+    @IBAction func didPressNewComputerMessage(sender: UIBarButtonItem) {
+        let newComputerMessage = ComputerMessage(text: "it's nice out", replies: [":)","yay!","great!"])
+        userReplyChoices = newComputerMessage.replies
+        let newMessage = Message(text: newComputerMessage.text, incoming: true)
+        insertMessage(newMessage)
+        self.save()
     }
     
     // MARK: - Navigation
@@ -51,11 +60,11 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
             let nav = segue.destinationViewController as! UINavigationController
             let uiPickerViewController = nav.topViewController as! UIPickerViewController
             uiPickerViewController.delegate = self
+            uiPickerViewController.pickerData = userReplyChoices
         }
     }
     
-    //MARK: - Table View Functions and related properties
-    // Set these later let textCellIdentifier = "messageCell"
+    //MARK: - Table View Functions
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -65,7 +74,17 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         return messages.count
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            self.deleteItem(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            self.save()
+        }
+    }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let message = messages[indexPath.item]
@@ -89,6 +108,18 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
             
             return cell
         }
+    }
+    
+    // MARK: TableView UI Actions
+    func deleteItem(indexPath: Int) {
+        messages.removeAtIndex(indexPath)
+    }
+    
+    func insertMessage(newMessage: Message) {
+        let newIndexPath = NSIndexPath(forRow: messages.count, inSection: 0)
+        messages.append(newMessage)
+        messageTableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation:.Fade)
+        messageTableView.scrollToRowAtIndexPath(newIndexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
     }
     
     // MARK: Data Storage

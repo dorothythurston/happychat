@@ -16,7 +16,7 @@ class UIPickerViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var myPicker: UIPickerView!
     
     var delegate: UIPickerViewControllerDelegate?
-    let pickerData = [" wonderful!"," fabulous"," awesome"," amazing"," 😄"," 🌟"," ☺️"]
+    var pickerData = [" wonderful!"," fabulous"," awesome"," amazing"," 😄"," 🌟"," ☺️"]
     var messageChoice = " wonderful!"
     
     override func viewDidLoad() {
