@@ -17,7 +17,7 @@ class UIPickerViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     var delegate: UIPickerViewControllerDelegate?
     var pickerData = [" wonderful!"," fabulous"," awesome"," amazing"," 😄"," 🌟"," ☺️"]
-    var messageChoice = " wonderful!"
+    var messageChoice = "wonderful!"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,7 @@ class UIPickerViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     //MARK: - Delegates and data sources
     //MARK: Data Sources
+
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }

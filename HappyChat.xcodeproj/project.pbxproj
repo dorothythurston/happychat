@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B800F42D1BB4550F00A9B8AA /* ShortReplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B800F42C1BB4550F00A9B8AA /* ShortReplies.swift */; settings = {ASSET_TAGS = (); }; };
+		B800F42F1BB4570600A9B8AA /* ComputerThoughts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B800F42E1BB4570600A9B8AA /* ComputerThoughts.swift */; settings = {ASSET_TAGS = (); }; };
 		B858F9951BABA57F00605A09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9941BABA57F00605A09 /* AppDelegate.swift */; };
 		B858F99A1BABA57F00605A09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B858F9981BABA57F00605A09 /* Main.storyboard */; };
 		B858F99C1BABA57F00605A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B858F99B1BABA57F00605A09 /* Assets.xcassets */; };
 		B858F99F1BABA57F00605A09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B858F99D1BABA57F00605A09 /* LaunchScreen.storyboard */; };
 		B858F9A71BABAB2200605A09 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9A61BABAB2200605A09 /* MessagesViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9A81BABAB5000605A09 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9AB1BABB14000605A09 /* NewMessage.swift */; settings = {ASSET_TAGS = (); }; };
 		B875566F1BAC6C8100F033AE /* UIPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B89E523F1BB09B9700139C1A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89E523E1BB09B9700139C1A /* Message.swift */; settings = {ASSET_TAGS = (); }; };
-		B89E52431BB1EB1400139C1A /* ComputerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89E52421BB1EB1400139C1A /* ComputerMessage.swift */; settings = {ASSET_TAGS = (); }; };
 		B8D2627F1BB041820045B232 /* IncomingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */; settings = {ASSET_TAGS = (); }; };
 		B8D262811BB0771B0045B232 /* OutgoingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B800F42C1BB4550F00A9B8AA /* ShortReplies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortReplies.swift; sourceTree = "<group>"; };
+		B800F42E1BB4570600A9B8AA /* ComputerThoughts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerThoughts.swift; sourceTree = "<group>"; };
 		B858F9911BABA57F00605A09 /* HappyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B858F9941BABA57F00605A09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B858F9991BABA57F00605A09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -30,10 +32,8 @@
 		B858F9A01BABA57F00605A09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B858F9A61BABAB2200605A09 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		B858F9A81BABAB5000605A09 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
-		B858F9AB1BABB14000605A09 /* NewMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessage.swift; sourceTree = "<group>"; };
 		B875566E1BAC6C8100F033AE /* UIPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPickerViewController.swift; sourceTree = "<group>"; };
 		B89E523E1BB09B9700139C1A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		B89E52421BB1EB1400139C1A /* ComputerMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerMessage.swift; sourceTree = "<group>"; };
 		B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingMessageCell.swift; sourceTree = "<group>"; };
 		B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingMessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B800F4301BB47D4A00A9B8AA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B800F42C1BB4550F00A9B8AA /* ShortReplies.swift */,
+				B800F42E1BB4570600A9B8AA /* ComputerThoughts.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		B858F9881BABA57F00605A09 = {
 			isa = PBXGroup;
 			children = (
@@ -71,10 +80,10 @@
 				B858F9AA1BABAB5A00605A09 /* Controllers */,
 				B8D2627D1BACFD710045B232 /* Models */,
 				B858F9941BABA57F00605A09 /* AppDelegate.swift */,
+				B800F4301BB47D4A00A9B8AA /* Data */,
 				B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */,
 				B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */,
 				B858F9981BABA57F00605A09 /* Main.storyboard */,
-				B858F9AB1BABB14000605A09 /* NewMessage.swift */,
 				B858F99B1BABA57F00605A09 /* Assets.xcassets */,
 				B858F99D1BABA57F00605A09 /* LaunchScreen.storyboard */,
 				B858F9A01BABA57F00605A09 /* Info.plist */,
@@ -96,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				B89E523E1BB09B9700139C1A /* Message.swift */,
-				B89E52421BB1EB1400139C1A /* ComputerMessage.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -174,12 +182,12 @@
 				B875566F1BAC6C8100F033AE /* UIPickerViewController.swift in Sources */,
 				B858F9A71BABAB2200605A09 /* MessagesViewController.swift in Sources */,
 				B858F9951BABA57F00605A09 /* AppDelegate.swift in Sources */,
-				B858F9AC1BABB14000605A09 /* NewMessage.swift in Sources */,
-				B89E52431BB1EB1400139C1A /* ComputerMessage.swift in Sources */,
 				B8D262811BB0771B0045B232 /* OutgoingMessageCell.swift in Sources */,
 				B89E523F1BB09B9700139C1A /* Message.swift in Sources */,
 				B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */,
 				B8D2627F1BB041820045B232 /* IncomingMessageCell.swift in Sources */,
+				B800F42D1BB4550F00A9B8AA /* ShortReplies.swift in Sources */,
+				B800F42F1BB4570600A9B8AA /* ComputerThoughts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,10 +2,11 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KB4-DZ-aZz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Chat-->
+        <!--Happy Chat-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MessagesViewController" customModule="HappyChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,7 +59,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c5M-q6-hDA" id="amN-1J-Mqd">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="New Message" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TVh-OY-5zJ">
@@ -153,7 +154,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hlZ-wo-hPF" id="mNE-wg-xSR">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="New Message" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P7p-vZ-PZ0">
@@ -291,12 +292,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="uJQ-Ia-hWx">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="h0A-5R-hce">
-                            <connections>
-                                <action selector="didPressNewComputerMessage:" destination="BYZ-38-t0r" id="GdG-zo-hum"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Happy Chat" id="uJQ-Ia-hWx">
                         <barButtonItem key="rightBarButtonItem" image="Gear" id="LUB-6V-Edn">
                             <connections>
                                 <segue destination="Cn4-un-Hmm" kind="presentation" id="nFK-CL-0mC"/>
@@ -456,7 +452,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kfr-Th-eGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197" y="-366"/>
+            <point key="canvasLocation" x="-73.5" y="-356"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1HJ-Lz-Ehu">
