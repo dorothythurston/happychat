@@ -16,7 +16,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     
     var messages = [Message]()
     // defaults set
-    var userReplyChoice = "😊 i sent this message. i could choose a different one by clicking on New Message to the left of the send button"
+    var userReplyChoice = "😊 i sent this message. i could choose a different one by clicking the button to the left of the send button"
     var userReplyChoices = ["i am happy. yay!", "", "😊", "🌟", "today is a good day", ":-P"]
     
     let maxResponseTime: UInt32 = 20
@@ -95,6 +95,8 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
             let cell = tableView.dequeueReusableCellWithIdentifier("incomingMessageCell", forIndexPath: indexPath) as! incomingMessageCell
             cell.messageField.text = message.text
             cell.messageField.layer.cornerRadius = 15.0;
+            cell.messageTimeStamp.text = message.timeDateFormat()
+            
             
             return cell
         }
@@ -102,6 +104,8 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
             let cell = tableView.dequeueReusableCellWithIdentifier("outgoingMessageCell", forIndexPath: indexPath) as! outgoingMessageCell
             cell.messageField.text = message.text
             cell.messageField.layer.cornerRadius = 15.0;
+            cell.messageTimeStamp.text = message.timeDateFormat()
+            
             
             return cell
         }
@@ -145,7 +149,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     }
     
     func resetReplies() {
-        myMessage.setTitle("New Message", forState: UIControlState.Normal)
+        myMessage.setTitle("Pick Message", forState: UIControlState.Normal)
         pickNewUserReplyChoices()
     }
     
