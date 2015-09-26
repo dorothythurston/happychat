@@ -77,9 +77,9 @@
 		B858F9931BABA57F00605A09 /* HappyChat */ = {
 			isa = PBXGroup;
 			children = (
+				B858F9941BABA57F00605A09 /* AppDelegate.swift */,
 				B858F9AA1BABAB5A00605A09 /* Controllers */,
 				B8D2627D1BACFD710045B232 /* Models */,
-				B858F9941BABA57F00605A09 /* AppDelegate.swift */,
 				B800F4301BB47D4A00A9B8AA /* Data */,
 				B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */,
 				B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */,

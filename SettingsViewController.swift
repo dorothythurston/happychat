@@ -24,6 +24,10 @@ class SettingsViewController: UIViewController {
     @IBAction func didPressCancel(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func didPressNotificationsSettings(sender: AnyObject) {
+     UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+    }
 
     /*
     // MARK: - Navigation

@@ -23,13 +23,14 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     let minResponseTime: UInt32 = 6
     let userReplyChoiceAmmount = 5
     var timer = NSTimer()
-    
+    var timedNotifications = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         messageTableView.delegate = self
         messageTableView.dataSource = self
-        // Do any additional setup after loading the view.
+       
+ 
         let defaults = NSUserDefaults.standardUserDefaults()
         
         if let savedMessages = defaults.objectForKey("messages") as? NSData {
@@ -37,6 +38,11 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         }
         messageTableView.estimatedRowHeight = 68.0
         messageTableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let application = UIApplication.sharedApplication()
+        application.applicationIconBadgeNumber = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +58,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         let newMessage = Message(text: userReplyChoice, incoming: false)
         insertMessage(newMessage)
         self.save()
-        setTimedResponse()
+        initiateComputerResponse()
         resetReplies()
     }
     
@@ -123,22 +129,46 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         messageTableView.scrollToRowAtIndexPath(newIndexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
     }
     
+    
     // MARK: Generated Message related functions
+    func initiateComputerResponse() {
+        let responseTime = pickRandomResponseTime()
+        setTimedResponse(responseTime)
+        setTimedNotification(responseTime)
+    }
+    
+    func pickRandomResponseTime() -> Double {
+        return Double(arc4random_uniform(maxResponseTime - minResponseTime) + minResponseTime)
+    }
+    
+    func setTimedResponse(responseTime: Double) {
+        timer = NSTimer.scheduledTimerWithTimeInterval(responseTime, target:self, selector: Selector("addNewComputerMessage"), userInfo: nil, repeats: false)
+    }
+    
+    // MARK: - Notifications
+    
+    func setTimedNotification(responseTime: Double) {
+        let application = UIApplication.sharedApplication()
+        guard let settings = application.currentUserNotificationSettings() else { return }
+        
+        if settings.types != .None {
+            let notification = UILocalNotification()
+            notification.fireDate = NSDate(timeIntervalSinceNow: responseTime)
+            notification.alertBody = "You have a New Message!"
+            notification.alertAction = "view"
+            notification.timeZone = NSTimeZone.defaultTimeZone()
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.applicationIconBadgeNumber = timedNotifications + 1
+            application.scheduleLocalNotification(notification)
+            timedNotifications += 1
+        }
+    }
     
     func addNewComputerMessage() {
         let randomThought = pickRandomComputerThought()
         let newComputerMessage = Message(text: randomThought, incoming: true)
         insertMessage(newComputerMessage)
         self.save()
-    }
-    
-    func setTimedResponse() {
-        let responseTime = pickRandomResponseTime()
-        timer = NSTimer.scheduledTimerWithTimeInterval(responseTime, target:self, selector: Selector("addNewComputerMessage"), userInfo: nil, repeats: false)
-    }
-    
-    func pickRandomResponseTime() -> Double {
-        return Double(arc4random_uniform(maxResponseTime - minResponseTime) + minResponseTime)
     }
     
     func pickRandomComputerThought() -> String {

@@ -57,7 +57,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c5M-q6-hDA" id="amN-1J-Mqd">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="New Message" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TVh-OY-5zJ">
@@ -142,6 +142,10 @@
                                                     <exclude reference="yS7-st-Zga"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="1ce-Fj-XPL"/>
+                                                    <exclude reference="Qrm-dF-WHG"/>
+                                                    <exclude reference="RhW-1U-BwL"/>
+                                                    <exclude reference="zLR-38-f2s"/>
                                                     <exclude reference="2td-FP-7Xn"/>
                                                     <exclude reference="Mjx-UN-ArI"/>
                                                     <exclude reference="NUr-kc-ufO"/>
@@ -152,10 +156,6 @@
                                                     <exclude reference="rV4-Jy-iph"/>
                                                     <exclude reference="xgM-XQ-KNf"/>
                                                     <exclude reference="yRu-tS-ZJo"/>
-                                                    <exclude reference="1ce-Fj-XPL"/>
-                                                    <exclude reference="Qrm-dF-WHG"/>
-                                                    <exclude reference="RhW-1U-BwL"/>
-                                                    <exclude reference="zLR-38-f2s"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -164,6 +164,10 @@
                                                     <include reference="yS7-st-Zga"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="1ce-Fj-XPL"/>
+                                                    <include reference="Qrm-dF-WHG"/>
+                                                    <include reference="RhW-1U-BwL"/>
+                                                    <include reference="zLR-38-f2s"/>
                                                     <exclude reference="2td-FP-7Xn"/>
                                                     <exclude reference="Mjx-UN-ArI"/>
                                                     <exclude reference="NUr-kc-ufO"/>
@@ -174,10 +178,6 @@
                                                     <exclude reference="rV4-Jy-iph"/>
                                                     <include reference="xgM-XQ-KNf"/>
                                                     <include reference="yRu-tS-ZJo"/>
-                                                    <include reference="1ce-Fj-XPL"/>
-                                                    <include reference="Qrm-dF-WHG"/>
-                                                    <include reference="RhW-1U-BwL"/>
-                                                    <include reference="zLR-38-f2s"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -190,7 +190,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hlZ-wo-hPF" id="mNE-wg-xSR">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="New Message" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P7p-vZ-PZ0">
@@ -279,6 +279,12 @@
                                                     <exclude reference="0g2-Og-KUh"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="AK5-8K-ALD"/>
+                                                    <exclude reference="AQ9-qL-Lv9"/>
+                                                    <exclude reference="Hee-8k-tR7"/>
+                                                    <exclude reference="WDP-wg-81k"/>
+                                                    <exclude reference="aOg-h6-Ht8"/>
+                                                    <exclude reference="or8-kw-k4H"/>
                                                     <exclude reference="3N7-7m-tbq"/>
                                                     <exclude reference="5cZ-UF-u9k"/>
                                                     <exclude reference="96a-Vd-3Rf"/>
@@ -291,12 +297,6 @@
                                                     <exclude reference="qFm-IX-fEq"/>
                                                     <exclude reference="rBP-wM-4Y5"/>
                                                     <exclude reference="s2n-fT-xbX"/>
-                                                    <exclude reference="AK5-8K-ALD"/>
-                                                    <exclude reference="AQ9-qL-Lv9"/>
-                                                    <exclude reference="Hee-8k-tR7"/>
-                                                    <exclude reference="WDP-wg-81k"/>
-                                                    <exclude reference="aOg-h6-Ht8"/>
-                                                    <exclude reference="or8-kw-k4H"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -305,6 +305,12 @@
                                                     <include reference="0g2-Og-KUh"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="AK5-8K-ALD"/>
+                                                    <exclude reference="AQ9-qL-Lv9"/>
+                                                    <exclude reference="Hee-8k-tR7"/>
+                                                    <include reference="WDP-wg-81k"/>
+                                                    <include reference="aOg-h6-Ht8"/>
+                                                    <include reference="or8-kw-k4H"/>
                                                     <exclude reference="3N7-7m-tbq"/>
                                                     <exclude reference="5cZ-UF-u9k"/>
                                                     <include reference="96a-Vd-3Rf"/>
@@ -317,12 +323,6 @@
                                                     <exclude reference="qFm-IX-fEq"/>
                                                     <exclude reference="rBP-wM-4Y5"/>
                                                     <exclude reference="s2n-fT-xbX"/>
-                                                    <include reference="AK5-8K-ALD"/>
-                                                    <exclude reference="AQ9-qL-Lv9"/>
-                                                    <exclude reference="Hee-8k-tR7"/>
-                                                    <include reference="WDP-wg-81k"/>
-                                                    <include reference="aOg-h6-Ht8"/>
-                                                    <include reference="or8-kw-k4H"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -512,7 +512,29 @@
                     <view key="view" contentMode="scaleToFill" id="REL-2i-c8g">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6o-RP-s43">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Set App Notifications"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="118" y="178" width="146" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="didPressNotificationsSettings:" destination="PzE-tP-vtg" eventType="touchUpInside" id="XFq-iO-GHl"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Y6o-RP-s43"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Y6o-RP-s43"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="GQ6-Vd-BI9">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="h4x-Io-GKW">
