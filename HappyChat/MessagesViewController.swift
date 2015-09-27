@@ -15,13 +15,17 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     @IBOutlet weak var messageTableView: UITableView!
     
     var messages = [Message]()
-    // defaults set
+    let defaults = NSUserDefaults.standardUserDefaults()
     var userReplyChoice = "😊 i sent this message. i could choose a different one by clicking the button to the left of the send button"
     var userReplyChoices = ["i am happy. yay!", "", "😊", "🌟", "today is a good day", ":-P"]
+    var userReplyColor = UIColor(red: 137/255.0, green: 49/255.0, blue: 255/255.0, alpha: 1.0)
+    var computerReplyColor = UIColor(red: 0/255.0, green: 140/255.0, blue: 255/255.0, alpha: 1.0)
     
     let maxResponseTime: UInt32 = 20
     let minResponseTime: UInt32 = 6
+    let randomMessageGenerationRate = 60
     let userReplyChoiceAmmount = 5
+    
     var timer = NSTimer()
     var timedNotifications = 0
     
@@ -29,13 +33,11 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         super.viewDidLoad()
         messageTableView.delegate = self
         messageTableView.dataSource = self
-       
- 
-        let defaults = NSUserDefaults.standardUserDefaults()
         
         if let savedMessages = defaults.objectForKey("messages") as? NSData {
             messages = NSKeyedUnarchiver.unarchiveObjectWithData(savedMessages) as! [Message]
         }
+        
         messageTableView.estimatedRowHeight = 68.0
         messageTableView.rowHeight = UITableViewAutomaticDimension
     }
@@ -43,8 +45,25 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     override func viewWillAppear(animated: Bool) {
         let application = UIApplication.sharedApplication()
         application.applicationIconBadgeNumber = 0
+        messageTableView.reloadData()
+        if let color = defaults.colorForKey("userReplyColorKey") {
+            userReplyColor = color
+        }
+        if let color = defaults.colorForKey("computerReplyColorKey") {
+            computerReplyColor = color
+        }
+        messageTableView.reloadData()
+        syncHeaderText()
     }
 
+    func syncHeaderText() {
+        let userNameKeyConstant = "userNameKey"
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let name = defaults.stringForKey(userNameKeyConstant)
+        {
+            navigationItem.title = name
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -102,7 +121,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
             cell.messageField.text = message.text
             cell.messageField.layer.cornerRadius = 15.0;
             cell.messageTimeStamp.text = message.timeDateFormat()
-            
+            cell.messageField.layer.backgroundColor = computerReplyColor.CGColor
             
             return cell
         }
@@ -111,7 +130,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
             cell.messageField.text = message.text
             cell.messageField.layer.cornerRadius = 15.0;
             cell.messageTimeStamp.text = message.timeDateFormat()
-            
+            cell.messageField.layer.backgroundColor = userReplyColor.CGColor
             
             return cell
         }
@@ -209,7 +228,6 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     
     func save() {
         let savedData = NSKeyedArchiver.archivedDataWithRootObject(messages)
-        let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(savedData, forKey: "messages")
     }
 }
