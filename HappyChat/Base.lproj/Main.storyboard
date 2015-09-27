@@ -516,9 +516,6 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pv6-8e-Lly">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <connections>
-                                    <segue destination="SBN-RQ-hCx" kind="embed" id="9Wk-TM-OLm"/>
-                                </connections>
                             </containerView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Happy Chat" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="K3j-QM-Sbj">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -654,6 +651,23 @@
                                     <action selector="didPressChangeComputerResponseColor:" destination="PzE-tP-vtg" eventType="touchUpInside" id="Snz-Zv-Tzm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZB-E1-DCN">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="177" y="435" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="didPressAddCircle:" destination="PzE-tP-vtg" eventType="touchUpInside" id="hcB-Fe-VaF"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="020-QH-ra8" customClass="MessageBubbleView" customModule="HappyChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="169" y="387" width="61" height="40"/>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -705,6 +719,8 @@
                                 <exclude reference="cwJ-7B-CKj"/>
                                 <exclude reference="Y6o-RP-s43"/>
                                 <exclude reference="Vea-Do-zFa"/>
+                                <exclude reference="2ZB-E1-DCN"/>
+                                <exclude reference="020-QH-ra8"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="FIk-xb-OTQ"/>
@@ -744,6 +760,8 @@
                                 <include reference="cwJ-7B-CKj"/>
                                 <include reference="Y6o-RP-s43"/>
                                 <include reference="Vea-Do-zFa"/>
+                                <include reference="2ZB-E1-DCN"/>
+                                <include reference="020-QH-ra8"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="FIk-xb-OTQ"/>
@@ -789,6 +807,7 @@
                     <connections>
                         <outlet property="computerReplyColor" destination="uDh-FV-wRI" id="aS0-5m-ksu"/>
                         <outlet property="containerView" destination="pv6-8e-Lly" id="StI-8Y-fzg"/>
+                        <outlet property="demoView" destination="020-QH-ra8" id="ecr-gq-HCH"/>
                         <outlet property="headerName" destination="K3j-QM-Sbj" id="WcZ-Ef-CAS"/>
                         <outlet property="userReplyColor" destination="cwJ-7B-CKj" id="X7y-7x-D67"/>
                     </connections>
@@ -850,23 +869,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bt4-CI-3YK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="993" y="382"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Sw2-ez-Wwz">
-            <objects>
-                <viewController id="SBN-RQ-hCx" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VaQ-di-HxL"/>
-                        <viewControllerLayoutGuide type="bottom" id="2r6-2C-V2C"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cjq-Pu-n7y">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ctd-Y6-gAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreGraphics
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var headerName: UITextView!
     @IBOutlet weak var userReplyColor: UITextView!
     @IBOutlet weak var computerReplyColor: UITextView!
     @IBOutlet weak var containerView: UIView!
+    
+    @IBOutlet weak var demoView: MessageBubbleView!
     
     let userNameKeyConstant = "userNameKey"
     let userReplyColorKeyConstant = "userReplyColorKey"
@@ -47,6 +50,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         syncNameLabel()
+        
+        // TO BE DELETED
+        demoView.layer.cornerRadius = 15.0
         userReplyColor.layer.cornerRadius = 15.0
         computerReplyColor.layer.cornerRadius = 15.0;
         
@@ -151,10 +157,18 @@ class SettingsViewController: UIViewController {
     func saveComputerColor(color: UIColor) {
         defaults.setColor(color, forKey: self.computerReplyColorKeyConstant)
     }
+    
+    @IBAction func didPressAddCircle(sender: UIButton) {
+        let circleLayer1 = CircleView(xValue: 12.0, yValue: 14.0)
+        let circleLayer2 = CircleView(xValue: 24.0, yValue: 14.0)
+        let circleLayer3 = CircleView(xValue: 36.0, yValue: 14.0)
+        demoView.addCircleView(circleLayer1)
+        demoView.addCircleView(circleLayer2)
+        demoView.addCircleView(circleLayer3)
+    }
 }
 
 extension NSUserDefaults {
-    
     func colorForKey(key: String) -> UIColor? {
         var color: UIColor?
         if let colorData = dataForKey(key) {
