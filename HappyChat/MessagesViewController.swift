@@ -43,8 +43,6 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     }
     
     override func viewWillAppear(animated: Bool) {
-        let application = UIApplication.sharedApplication()
-        application.applicationIconBadgeNumber = 0
         messageTableView.reloadData()
         if let color = defaults.colorForKey("userReplyColorKey") {
             userReplyColor = color
@@ -53,6 +51,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
             computerReplyColor = color
         }
         messageTableView.reloadData()
+        resetBadgeNumbers()
         syncHeaderText()
     }
 
@@ -222,6 +221,12 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         }
         
         return chosenReplies
+    }
+    
+    func resetBadgeNumbers() {
+        let application = UIApplication.sharedApplication()
+        application.applicationIconBadgeNumber = 0
+        timedNotifications = 0
     }
     
     // MARK: Data Storage
