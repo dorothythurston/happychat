@@ -8,26 +8,29 @@
 
 import UIKit
 
-class MessagesViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate  {
+class MessagesViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate  {
    
     //MARK: - Properties
-    @IBOutlet weak var myMessage: UIButton!
     @IBOutlet weak var messageTableView: UITableView!
+    @IBOutlet weak var newMessageField: UITextView!
+
     
     var messages = [Message]()
     let defaults = NSUserDefaults.standardUserDefaults()
-    var userReplyChoice = "😊 i sent this message. i could choose a different one by clicking the button to the left of the send button"
-    var userReplyChoices = ["i am happy. yay!", "", "😊", "🌟", "today is a good day", ":-P"]
+
     var userReplyColor = UIColor(red: 137/255.0, green: 49/255.0, blue: 255/255.0, alpha: 1.0)
     var computerReplyColor = UIColor(red: 0/255.0, green: 140/255.0, blue: 255/255.0, alpha: 1.0)
     
-    let maxResponseTime: UInt32 = 20
+    let maxResponseTime: UInt32 = 12
     let minResponseTime: UInt32 = 6
-    let randomMessageGenerationRate = 60
-    let userReplyChoiceAmmount = 5
+    
     
     var timer = NSTimer()
     var timedNotifications = 0
+    
+    let placeHolderText = "What's good?"
+    let placeHolderColor = UIColor.lightGrayColor()
+    let typingColor = UIColor.blackColor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,56 +43,45 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         
         messageTableView.estimatedRowHeight = 68.0
         messageTableView.rowHeight = UITableViewAutomaticDimension
+        newMessageField.delegate = self
+        newMessageField.text = placeHolderText
+        newMessageField.textColor = placeHolderColor
+        newMessageField.layer.cornerRadius = 10.0
     }
     
     override func viewWillAppear(animated: Bool) {
-        messageTableView.reloadData()
         if let color = defaults.colorForKey("userReplyColorKey") {
             userReplyColor = color
         }
         if let color = defaults.colorForKey("computerReplyColorKey") {
             computerReplyColor = color
         }
+        subscribeToKeyboardNotifications()
         messageTableView.reloadData()
         resetBadgeNumbers()
         syncHeaderText()
     }
-
-    func syncHeaderText() {
-        let userNameKeyConstant = "userNameKey"
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let name = defaults.stringForKey(userNameKeyConstant)
-        {
-            navigationItem.title = name
-        }
+    
+    override func viewWillDisappear(animated: Bool) {
+        unsubscribeFromKeyboardNotifications()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     // MARK: - IB Actions
-    @IBAction func didPressNewMessage(sender: AnyObject) {
-    }
-    
-    @IBAction func didPressSendMessage(sender: UIBarButtonItem) {
-        let newMessage = Message(text: userReplyChoice, incoming: false)
-        insertMessage(newMessage)
-        self.save()
-        initiateComputerResponse()
-        resetReplies()
-    }
-    
-    // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "NewMessageSegue" {
-            let nav = segue.destinationViewController as! UINavigationController
-            let uiPickerViewController = nav.topViewController as! UIPickerViewController
-            uiPickerViewController.delegate = self
-            uiPickerViewController.pickerData = userReplyChoices
+    @IBAction func didPressSendMessage() {
+        if let newMessageText = newMessageField.text {
+         let newMessage = Message(text: newMessageText, incoming: false)
+            insertMessage(newMessage)
+            newMessageField.text = ""
+            self.save()
+            initiateComputerResponse()
         }
     }
-    
+
     //MARK: - Table View Functions
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -134,8 +126,9 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
             return cell
         }
     }
-    
-    // MARK: TableView UI Actions
+
+        
+    // MARK: - TableView UI Actions
     func deleteItem(indexPath: Int) {
         messages.removeAtIndex(indexPath)
     }
@@ -148,7 +141,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     }
     
     
-    // MARK: Generated Message related functions
+    // MARK: - Generated Message Related Runctions
     func initiateComputerResponse() {
         let responseTime = pickRandomResponseTime()
         setTimedResponse(responseTime)
@@ -196,51 +189,74 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         return randomThought
     }
     
-    func resetReplies() {
-        myMessage.setTitle("Pick Message", forState: UIControlState.Normal)
-        pickNewUserReplyChoices()
-    }
-    
-    func pickNewUserReplyChoices() {
-        userReplyChoices = chooseThreeRandomShortReplies()
-    }
-    
-    func chooseThreeRandomShortReplies() -> Array<String> {
-        let shortReplies = ShortReplies()
-        var chosenReplies = [String]()
-        var chosenIndexes = [Int]()
-        while (chosenIndexes.count < userReplyChoiceAmmount) {
-            let randomIndex = Int(arc4random_uniform(UInt32(shortReplies.choices.count)))
-            if (chosenIndexes.contains(randomIndex) == false) {
-                chosenIndexes.append(randomIndex)
-            }
-        }
-        for randomIndex in chosenIndexes {
-            let randomReply = (shortReplies.choices[randomIndex])
-            chosenReplies.append(randomReply)
-        }
-        
-        return chosenReplies
-    }
-    
     func resetBadgeNumbers() {
         let application = UIApplication.sharedApplication()
         application.applicationIconBadgeNumber = 0
         timedNotifications = 0
     }
     
-    // MARK: Data Storage
+    func syncHeaderText() {
+        let userNameKeyConstant = "userNameKey"
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let name = defaults.stringForKey(userNameKeyConstant)
+        {
+            navigationItem.title = name
+        }
+    }
+    
+    // MARK: - Data Storage
     
     func save() {
         let savedData = NSKeyedArchiver.archivedDataWithRootObject(messages)
         defaults.setObject(savedData, forKey: "messages")
     }
-}
-
-extension MessagesViewController: UIPickerViewControllerDelegate {
-    func newMessageChoiceMade(choice: String) {
-      myMessage.setTitle(choice, forState: UIControlState.Normal)
-        userReplyChoice = choice
-   }
+    
+    // MARK: - Keyboard
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+                self.view.frame.origin.y -= getKeyboardHeight(notification)
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.CGRectValue().height
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
+    
+    // MARK: - TextView
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.textColor == placeHolderColor {
+            textView.text = nil
+            textView.textColor = typingColor
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = placeHolderText
+            textView.textColor = placeHolderColor
+        }
+    }
 }
 
