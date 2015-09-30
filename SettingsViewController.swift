@@ -7,21 +7,21 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var computerReplyColor: UITextView!
     @IBOutlet weak var containerView: UIView!
     
-    let userNameKeyConstant = "userNameKey"
-    let userReplyColorKeyConstant = "userReplyColorKey"
-    let computerReplyColorKeyConstant = "computerReplyColorKey"
-    let defaults = NSUserDefaults.standardUserDefaults()
+    private let userNameKeyConstant = "userNameKey"
+    private let userReplyColorKeyConstant = "userReplyColorKey"
+    private let computerReplyColorKeyConstant = "computerReplyColorKey"
+    private let defaults = NSUserDefaults.standardUserDefaults()
     
-    var userColorIndex = 0
-    var computerColorIndex = 0
-    let maxColorIndex = 11
+    private var userColorIndex = 0
+    private var computerColorIndex = 0
+    private let maxColorIndex = 11
     
     // reduce extra saving
-    var userColorModified = false
-    var computerColorModified = false
-    var headerNameModified = false
+    private var userColorModified = false
+    private var computerColorModified = false
+    private var headerNameModified = false
     
-    let colorChoices = [
+    private let colorChoices = [
         UIColor.happyChatDullGreen(), // dull green color
         UIColor.happyChatBrightGreen(), // bright green color
         UIColor.happyChatYellow(), // yellow color
@@ -102,7 +102,7 @@ class SettingsViewController: UIViewController {
     }
 
     
-    func pickNewName() {
+    private func pickNewName() {
         let alert = UIAlertController(title: "Enter Name", message: "Pick a nice name", preferredStyle: .Alert)
         
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
@@ -120,23 +120,23 @@ class SettingsViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func saveName(newName: String) {
+    private func saveName(newName: String) {
         defaults.setObject(newName, forKey: self.userNameKeyConstant)
         
     }
     
-    func syncNameLabel() {
+    private func syncNameLabel() {
         if let name = defaults.stringForKey(userNameKeyConstant)
         {
             headerName.text = name
         }
     }
     
-    func saveUserColor(color: UIColor) {
+    private func saveUserColor(color: UIColor) {
         defaults.setColor(color, forKey: self.userReplyColorKeyConstant)
     }
     
-    func saveComputerColor(color: UIColor) {
+    private func saveComputerColor(color: UIColor) {
         defaults.setColor(color, forKey: self.computerReplyColorKeyConstant)
     }
 }

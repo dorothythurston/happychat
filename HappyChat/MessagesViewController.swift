@@ -1,4 +1,5 @@
 import UIKit
+import AudioToolbox
 
 class MessagesViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate {
    
@@ -9,6 +10,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     var messages: [Message] = []
     
     let defaults = NSUserDefaults.standardUserDefaults()
+    let application = UIApplication.sharedApplication()
     
     private let maxResponseTime: UInt32 = 12
     private let minResponseTime: UInt32 = 6
@@ -50,9 +52,13 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     
     // MARK: - IB Actions
     @IBAction func didPressSendMessage() {
-        if let newMessageText = newMessageField.text {
+        if newMessageField.text.isEmpty {
+            
+        }
+        else if let newMessageText = newMessageField.text {
          let newMessage = Message(text: newMessageText, incoming: false)
             insertMessage(newMessage)
+            playNewUserMessageSound()
             newMessageField.text = ""
             self.save()
             initiateComputerResponse()
@@ -88,30 +94,16 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         timer = NSTimer.scheduledTimerWithTimeInterval(responseTime, target:self, selector: Selector("addNewComputerMessage"), userInfo: nil, repeats: false)
     }
     
-    // MARK: - Notifications
-    
-    private func setTimedNotification(responseTime: Double) {
-        let application = UIApplication.sharedApplication()
-        guard let settings = application.currentUserNotificationSettings() else { return }
-        
-        if settings.types != .None {
-            let notification = UILocalNotification()
-            notification.fireDate = NSDate(timeIntervalSinceNow: responseTime)
-            notification.alertBody = "You have a New Message!"
-            notification.alertAction = "view"
-            notification.timeZone = NSTimeZone.defaultTimeZone()
-            notification.soundName = UILocalNotificationDefaultSoundName
-            notification.applicationIconBadgeNumber = timedNotifications + 1
-            application.scheduleLocalNotification(notification)
-            timedNotifications += 1
-        }
-    }
-    
-    private func addNewComputerMessage() {
+    func addNewComputerMessage() {
         let randomThought = pickRandomComputerThought()
         let newComputerMessage = Message(text: randomThought, incoming: true)
         insertMessage(newComputerMessage)
+        playNewComputerMessageSound()
         self.save()
+        let state = application.applicationState
+        if (state == UIApplicationState.Active) {
+            playNewComputerMessageSound()
+        }
     }
     
     private func pickRandomComputerThought() -> String {
@@ -134,5 +126,33 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
             navigationItem.title = name
         }
     }
+    
+    // MARK: - Notifications
+    
+    private func setTimedNotification(responseTime: Double) {
+        guard let settings = application.currentUserNotificationSettings() else { return }
+        
+        if settings.types != .None {
+            let notification = UILocalNotification()
+            notification.fireDate = NSDate(timeIntervalSinceNow: responseTime)
+            notification.alertBody = "You have a New Message!"
+            notification.alertAction = "view"
+            notification.timeZone = NSTimeZone.defaultTimeZone()
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.applicationIconBadgeNumber = timedNotifications + 1
+            application.scheduleLocalNotification(notification)
+            timedNotifications += 1
+        }
+    }
+    
+    // MARK: - In App Sounds
+    private func playNewComputerMessageSound() {
+        AudioServicesPlaySystemSound(1003)
+    }
+    
+    private func playNewUserMessageSound() {
+        AudioServicesPlaySystemSound(1004)
+    }
+    
 }
 
