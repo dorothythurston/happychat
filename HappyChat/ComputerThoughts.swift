@@ -1,11 +1,3 @@
-//
-//  ComputerThoughts.swift
-//  HappyChat
-//
-//  Created by Dorothy Thurston on 9/24/15.
-//  Copyright © 2015 Dorothy Thurston. All rights reserved.
-//
-
 import Foundation
 
 struct ComputerThoughts {

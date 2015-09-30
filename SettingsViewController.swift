@@ -1,11 +1,3 @@
-//
-//  SettingsViewController.swift
-//  HappyChat
-//
-//  Created by Dorothy Thurston on 9/17/15.
-//  Copyright © 2015 Dorothy Thurston. All rights reserved.
-//
-
 import UIKit
 import CoreGraphics
 
@@ -30,18 +22,18 @@ class SettingsViewController: UIViewController {
     var headerNameModified = false
     
     let colorChoices = [
-        UIColor(red: 85/255.0, green: 176/255.0, blue: 112/255.0, alpha: 1.0), // dull green color
-        UIColor(red: 5/255.0, green: 248/255.0, blue: 2/255.0, alpha: 1.0), // bright green color
-        UIColor(red: 255/255.0, green: 207/255.0, blue: 72/255.0, alpha: 1.0), // yellow color
-        UIColor(red: 255/255.0, green: 136/255.0, blue: 2/255.0, alpha: 1.0), // orange color
-        UIColor(red: 255/255.0, green: 114/255.0, blue: 110/255.0, alpha: 1.0), // salmon color
-        UIColor(red: 255/255.0, green: 67/255.0, blue: 164/255.0, alpha: 1.0), // pink color
-        UIColor(red: 255/255.0, green: 127/255.0, blue: 211/255.0, alpha: 1.0), // light pink color
-        UIColor(red: 210/255.0, green: 120/255.0, blue: 255/255.0, alpha: 1.0), // lavender purple color
-        UIColor(red: 137/255.0, green: 49/255.0, blue: 255/255.0, alpha: 1.0), // grape purple color
-        UIColor(red: 0/255.0, green: 140/255.0, blue: 255/255.0, alpha: 1.0), // aqua blue color
-        UIColor(red: 29/255.0, green: 172/255.0, blue: 214/255.0, alpha: 1.0), //sky blue color
-        UIColor(red: 90/255.0, green: 187/255.0, blue: 181/255.0, alpha: 1.0) //teal color
+        UIColor.happyChatDullGreen(), // dull green color
+        UIColor.happyChatBrightGreen(), // bright green color
+        UIColor.happyChatYellow(), // yellow color
+        UIColor.happyChatOrange(), // orange color
+        UIColor.happyChatSalmon(), // salmon color
+        UIColor.happyChatPink(), // pink color
+        UIColor.happyChatLightPink(), // light pink color
+        UIColor.happyChatLavender(), // lavender purple color
+        UIColor.happyChatGrape(), // grape purple color
+        UIColor.happyChatAqua(), // aqua blue color
+        UIColor.happyChatSkyBlue(), //sky blue color
+        UIColor.happyChatTeal() //teal color
     ]
 
     
@@ -60,12 +52,6 @@ class SettingsViewController: UIViewController {
         }
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = UIColor.lightGrayColor().CGColor
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func didPressCancel(sender: UIBarButtonItem) {
@@ -155,21 +141,3 @@ class SettingsViewController: UIViewController {
     }
 }
 
-extension NSUserDefaults {
-    func colorForKey(key: String) -> UIColor? {
-        var color: UIColor?
-        if let colorData = dataForKey(key) {
-            color = NSKeyedUnarchiver.unarchiveObjectWithData(colorData) as? UIColor
-        }
-        return color
-    }
-    
-    func setColor(color: UIColor?, forKey key: String) {
-        var colorData: NSData?
-        if let color = color {
-            colorData = NSKeyedArchiver.archivedDataWithRootObject(color)
-        }
-        setObject(colorData, forKey: key)
-    }
-    
-}

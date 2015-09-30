@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ov2-sP-9nw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ov2-sP-9nw">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="incomingMessageCell" rowHeight="58" id="c5M-q6-hDA" userLabel="Incoming Message Cell" customClass="incomingMessageCell" customModule="HappyChat" customModuleProvider="target">
@@ -404,6 +404,11 @@
                                 <exclude reference="fpi-uh-kvg"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="9ZV-Tu-QlR"/>
+                                <exclude reference="oEo-qq-jOH"/>
+                                <exclude reference="qbq-8P-yHo"/>
+                                <exclude reference="HgT-Rx-A5N"/>
+                                <exclude reference="g8W-j3-wgi"/>
                                 <exclude reference="Eo7-3I-RAj"/>
                                 <exclude reference="Ji9-8b-hOi"/>
                                 <exclude reference="mLb-V8-9gb"/>
@@ -418,11 +423,6 @@
                                 <exclude reference="Edg-J4-7hM"/>
                                 <exclude reference="kCr-Op-wFa"/>
                                 <exclude reference="qL6-yp-psJ"/>
-                                <exclude reference="9ZV-Tu-QlR"/>
-                                <exclude reference="oEo-qq-jOH"/>
-                                <exclude reference="qbq-8P-yHo"/>
-                                <exclude reference="HgT-Rx-A5N"/>
-                                <exclude reference="g8W-j3-wgi"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -433,6 +433,11 @@
                                 <include reference="fpi-uh-kvg"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="9ZV-Tu-QlR"/>
+                                <include reference="oEo-qq-jOH"/>
+                                <include reference="qbq-8P-yHo"/>
+                                <include reference="HgT-Rx-A5N"/>
+                                <include reference="g8W-j3-wgi"/>
                                 <include reference="Eo7-3I-RAj"/>
                                 <include reference="Ji9-8b-hOi"/>
                                 <include reference="mLb-V8-9gb"/>
@@ -447,11 +452,6 @@
                                 <include reference="Edg-J4-7hM"/>
                                 <include reference="kCr-Op-wFa"/>
                                 <exclude reference="qL6-yp-psJ"/>
-                                <include reference="9ZV-Tu-QlR"/>
-                                <include reference="oEo-qq-jOH"/>
-                                <include reference="qbq-8P-yHo"/>
-                                <include reference="HgT-Rx-A5N"/>
-                                <include reference="g8W-j3-wgi"/>
                             </mask>
                         </variation>
                     </view>
