@@ -55,7 +55,6 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         if (newMessageField.text.isEmpty || newMessageField.text == placeHolderText)  {
             highlightNewMessageField()
         }
-            
         else if let newMessageText = newMessageField.text {
          let newMessage = Message(text: newMessageText, incoming: false)
             insertMessage(newMessage)

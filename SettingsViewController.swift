@@ -1,10 +1,10 @@
 import UIKit
 import CoreGraphics
 
-class SettingsViewController: UIViewController {
-    @IBOutlet weak var headerName: UITextView!
-    @IBOutlet weak var userReplyColor: UITextView!
-    @IBOutlet weak var computerReplyColor: UITextView!
+class SettingsViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var headerName: UITextField!
+    @IBOutlet weak var computerReplyColor: UIButton!
+    @IBOutlet weak var userReplyColor: UIButton!
     @IBOutlet weak var containerView: UIView!
     
     private let userNameKeyConstant = "userNameKey"
@@ -35,7 +35,6 @@ class SettingsViewController: UIViewController {
         UIColor.happyChatSkyBlue(), //sky blue color
         UIColor.happyChatTeal() //teal color
     ]
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +51,8 @@ class SettingsViewController: UIViewController {
         }
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        
+        headerName.delegate = self
     }
     
     @IBAction func didPressCancel(sender: UIBarButtonItem) {
@@ -75,10 +76,6 @@ class SettingsViewController: UIViewController {
      UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
     }
     
-    @IBAction func didPressPickNewName(sender: UIButton) {
-        pickNewName()
-    }
-    
     @IBAction func didPressChangeUserReplyColor(sender: UIButton) {
         if userColorIndex == maxColorIndex {
             userColorIndex = 0
@@ -100,25 +97,6 @@ class SettingsViewController: UIViewController {
         computerReplyColor.backgroundColor = colorChoices[computerColorIndex]
         self.computerColorModified = true
     }
-
-    
-    private func pickNewName() {
-        let alert = UIAlertController(title: "Enter Name", message: "Pick a nice name", preferredStyle: .Alert)
-        
-        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
-            textField.text = self.headerName.text
-        })
-        
-        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
-            let textField = alert.textFields![0] as UITextField
-            if (textField.text!.characters.count <= 20) {
-                let newName = textField.text!
-                self.headerName.text = newName
-                self.headerNameModified = true
-            }
-        }))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
     
     private func saveName(newName: String) {
         defaults.setObject(newName, forKey: self.userNameKeyConstant)
@@ -138,6 +116,15 @@ class SettingsViewController: UIViewController {
     
     private func saveComputerColor(color: UIColor) {
         defaults.setColor(color, forKey: self.computerReplyColorKeyConstant)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        headerNameModified = true
     }
 }
 
