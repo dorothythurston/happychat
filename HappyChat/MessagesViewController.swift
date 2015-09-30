@@ -52,9 +52,10 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     
     // MARK: - IB Actions
     @IBAction func didPressSendMessage() {
-        if newMessageField.text.isEmpty {
-            
+        if (newMessageField.text.isEmpty || newMessageField.text == placeHolderText)  {
+            highlightNewMessageField()
         }
+            
         else if let newMessageText = newMessageField.text {
          let newMessage = Message(text: newMessageText, incoming: false)
             insertMessage(newMessage)
@@ -66,6 +67,23 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     }
         
     // MARK: - TableView UI Actions
+    
+    private func highlightNewMessageField() {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        var upRect: NSValue {
+            return NSValue(CGPoint: CGPointMake(newMessageField.center.x - 10, newMessageField.center.y))
+        }
+        
+        var downRect: NSValue {
+            return NSValue(CGPoint: CGPointMake(newMessageField.center.x + 10, newMessageField.center.y))
+        }
+        animation.fromValue = upRect
+        animation.toValue = downRect
+        newMessageField.layer.addAnimation(animation, forKey: "position")
+    }
     
     private func insertMessage(newMessage: Message) {
         let newIndexPath = NSIndexPath(forRow: messages.count, inSection: 0)
