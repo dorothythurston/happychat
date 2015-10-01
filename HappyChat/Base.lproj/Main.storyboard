@@ -615,14 +615,14 @@
                                 <exclude reference="Vea-Do-zFa"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="DLd-fp-ekx"/>
+                                <exclude reference="km0-4h-IjH"/>
                                 <exclude reference="4P7-YO-77j"/>
                                 <exclude reference="7Pi-0R-Q7c"/>
                                 <exclude reference="Ix2-En-Q7h"/>
                                 <exclude reference="Q68-7b-Q7c"/>
                                 <exclude reference="YsR-gz-Jxt"/>
                                 <exclude reference="sh7-bg-cz7"/>
-                                <exclude reference="DLd-fp-ekx"/>
-                                <exclude reference="km0-4h-IjH"/>
                                 <exclude reference="6hN-6t-gCH"/>
                                 <exclude reference="I5d-QA-ZNB"/>
                                 <exclude reference="nba-wT-3Qp"/>
@@ -639,14 +639,14 @@
                                 <include reference="Vea-Do-zFa"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="DLd-fp-ekx"/>
+                                <include reference="km0-4h-IjH"/>
                                 <include reference="4P7-YO-77j"/>
                                 <include reference="7Pi-0R-Q7c"/>
                                 <include reference="Ix2-En-Q7h"/>
                                 <include reference="Q68-7b-Q7c"/>
                                 <include reference="YsR-gz-Jxt"/>
                                 <include reference="sh7-bg-cz7"/>
-                                <include reference="DLd-fp-ekx"/>
-                                <include reference="km0-4h-IjH"/>
                                 <include reference="6hN-6t-gCH"/>
                                 <include reference="I5d-QA-ZNB"/>
                                 <include reference="nba-wT-3Qp"/>
