@@ -13,13 +13,13 @@
 		B858F99C1BABA57F00605A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B858F99B1BABA57F00605A09 /* Assets.xcassets */; };
 		B858F99F1BABA57F00605A09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B858F99D1BABA57F00605A09 /* LaunchScreen.storyboard */; };
 		B858F9A71BABAB2200605A09 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9A61BABAB2200605A09 /* MessagesViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858F9A81BABAB5000605A09 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B89E523F1BB09B9700139C1A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89E523E1BB09B9700139C1A /* Message.swift */; settings = {ASSET_TAGS = (); }; };
 		B8BCFD7B1BBB88B1009515AA /* UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BCFD7A1BBB88B1009515AA /* UITableViewDataSource.swift */; settings = {ASSET_TAGS = (); }; };
 		B8BCFD7E1BBB8FE5009515AA /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BCFD7D1BBB8FE5009515AA /* UIColor.swift */; settings = {ASSET_TAGS = (); }; };
 		B8BCFD801BBC525C009515AA /* UITableViewTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BCFD7F1BBC525C009515AA /* UITableViewTextViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		B8BCFD821BBC60B3009515AA /* KeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BCFD811BBC60B3009515AA /* KeyBoard.swift */; settings = {ASSET_TAGS = (); }; };
 		B8BCFD851BBC616E009515AA /* NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BCFD841BBC616E009515AA /* NSUserDefaults.swift */; settings = {ASSET_TAGS = (); }; };
+		B8C6A9181BC45B07001697D4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6A9171BC45B07001697D4 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B8D2627F1BB041820045B232 /* IncomingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */; settings = {ASSET_TAGS = (); }; };
 		B8D262811BB0771B0045B232 /* OutgoingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -33,13 +33,13 @@
 		B858F99E1BABA57F00605A09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B858F9A01BABA57F00605A09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B858F9A61BABAB2200605A09 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		B858F9A81BABAB5000605A09 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
 		B89E523E1BB09B9700139C1A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B8BCFD7A1BBB88B1009515AA /* UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewDataSource.swift; sourceTree = "<group>"; };
 		B8BCFD7D1BBB8FE5009515AA /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B8BCFD7F1BBC525C009515AA /* UITableViewTextViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewTextViewDelegate.swift; sourceTree = "<group>"; };
 		B8BCFD811BBC60B3009515AA /* KeyBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoard.swift; sourceTree = "<group>"; };
 		B8BCFD841BBC616E009515AA /* NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaults.swift; sourceTree = "<group>"; };
+		B8C6A9171BC45B07001697D4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B8D2627E1BB041820045B232 /* IncomingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingMessageCell.swift; sourceTree = "<group>"; };
 		B8D262801BB0771B0045B232 /* OutgoingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingMessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				B858F9A61BABAB2200605A09 /* MessagesViewController.swift */,
-				B858F9A81BABAB5000605A09 /* SettingsViewController.swift */,
+				B8C6A9171BC45B07001697D4 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -210,10 +210,10 @@
 				B89E523F1BB09B9700139C1A /* Message.swift in Sources */,
 				B8BCFD821BBC60B3009515AA /* KeyBoard.swift in Sources */,
 				B8BCFD7E1BBB8FE5009515AA /* UIColor.swift in Sources */,
-				B858F9A91BABAB5000605A09 /* SettingsViewController.swift in Sources */,
 				B8D2627F1BB041820045B232 /* IncomingMessageCell.swift in Sources */,
 				B8BCFD801BBC525C009515AA /* UITableViewTextViewDelegate.swift in Sources */,
 				B8BCFD7B1BBB88B1009515AA /* UITableViewDataSource.swift in Sources */,
+				B8C6A9181BC45B07001697D4 /* SettingsViewController.swift in Sources */,
 				B8BCFD851BBC616E009515AA /* NSUserDefaults.swift in Sources */,
 				B800F42F1BB4570600A9B8AA /* ComputerThoughts.swift in Sources */,
 			);
