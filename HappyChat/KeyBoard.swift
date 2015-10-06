@@ -4,6 +4,7 @@ extension MessagesViewController {
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+
     }
     
     func unsubscribeFromKeyboardNotifications() {
@@ -12,7 +13,16 @@ extension MessagesViewController {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+        else {
+            let currentViewHeight = self.view.frame.origin.y
+            let newKeyboardHeight = getKeyboardHeight(notification)
+            let differenceInHeights = currentViewHeight + newKeyboardHeight
+            
+            self.view.frame.origin.y -= differenceInHeights
+        }
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -20,6 +30,7 @@ extension MessagesViewController {
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.CGRectValue().height
     }
+    
     
     func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
