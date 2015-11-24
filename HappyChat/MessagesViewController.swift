@@ -58,10 +58,9 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         else if let newMessageText = newMessageField.text {
          let newMessage = Message(text: newMessageText, incoming: false)
             insertMessage(newMessage)
-            playNewUserMessageSound()
             newMessageField.text = ""
-            self.save()
             initiateComputerResponse()
+            self.save()
         }
     }
         
@@ -85,10 +84,17 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     }
     
     private func insertMessage(newMessage: Message) {
-        let newIndexPath = NSIndexPath(forRow: messages.count, inSection: 0)
-        messages.append(newMessage)
-        messageTableView.reloadData()
-        messageTableView.scrollToRowAtIndexPath(newIndexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+        dispatch_async(dispatch_get_main_queue() ) {
+            let newIndexPath = NSIndexPath(forRow: self.messages.count, inSection: 0)
+            self.messages.append(newMessage)
+            self.messageTableView.reloadData()
+            self.messageTableView.scrollToRowAtIndexPath(newIndexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+            if newMessage.incoming == true  {
+                self.playNewComputerMessageSound()
+            } else {
+                self.playNewUserMessageSound()
+            }
+        }
     }
     
     func save() {
@@ -115,12 +121,8 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
         let randomThought = pickRandomComputerThought()
         let newComputerMessage = Message(text: randomThought, incoming: true)
         insertMessage(newComputerMessage)
-        playNewComputerMessageSound()
+        
         self.save()
-        let state = application.applicationState
-        if (state == UIApplicationState.Active) {
-            playNewComputerMessageSound()
-        }
     }
     
     private func pickRandomComputerThought() -> String {
@@ -164,7 +166,10 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     
     // MARK: - In App Sounds
     private func playNewComputerMessageSound() {
-        AudioServicesPlaySystemSound(1003)
+        let state = application.applicationState
+        if (state == UIApplicationState.Active) {
+            AudioServicesPlaySystemSound(1003)
+        }
     }
     
     private func playNewUserMessageSound() {
