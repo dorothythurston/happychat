@@ -114,7 +114,7 @@ class MessagesViewController: UIViewController, UINavigationControllerDelegate, 
     }
     
     private func setTimedResponse(responseTime: Double) {
-        timer = NSTimer.scheduledTimerWithTimeInterval(responseTime, target:self, selector: Selector("addNewComputerMessage"), userInfo: nil, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(responseTime, target:self, selector: #selector(MessagesViewController.addNewComputerMessage), userInfo: nil, repeats: false)
     }
     
     func addNewComputerMessage() {

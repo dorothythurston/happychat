@@ -81,7 +81,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             userColorIndex = 0
         }
         else {
-            userColorIndex++
+            userColorIndex += 1
         }
         userReplyColor.backgroundColor = colorChoices[userColorIndex]
         self.userColorModified = true
@@ -92,7 +92,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             computerColorIndex = 0
         }
         else {
-            computerColorIndex++
+            computerColorIndex += 1
         }
         computerReplyColor.backgroundColor = colorChoices[computerColorIndex]
         self.computerColorModified = true
